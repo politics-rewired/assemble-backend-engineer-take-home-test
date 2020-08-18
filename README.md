@@ -5,8 +5,8 @@ The goal of this test is to introduce you to database oriented programming and g
 your ability to solve a non-trivial but not too complex problem.
 
 For a quick introduction to database oriented programming, check out
-(this blog post)[https://pgdash.io/blog/postgres-server-side-programming.html].
-For a quick introduction to why you'd want to do this, check out (this talk)[https://www.youtube.com/watch?v=XDOrhTXd4pE].
+[this blog post](https://pgdash.io/blog/postgres-server-side-programming.html).
+For a quick introduction to why you'd want to do this, check out [this talk](https://www.youtube.com/watch?v=XDOrhTXd4pE).
 
 This assignment should be possible only using triggers which call user defined `pl/pgsql` functions.
 
