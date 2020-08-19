@@ -227,7 +227,41 @@ describe("triple opt out", () => {
     );
 
     expect(errorMessage).toBeUndefined();
+    expect(messageId).not.toBeUndefined();
+  });
 
+  test("should successfully send a third message after two distinct and one duplicate unsubscribes", async () => {
+    const { messageId, errorMessage } = await withPgMiddlewares(
+      pool,
+      [autoRollbackMiddleware],
+      async (client: PoolClient) => {
+        const toNumber = faker.phone.phoneNumber();
+        const body = faker.hacker.phrase();
+
+        const profiles = await setupFourProfiles(client);
+
+        const first = await sendMessage(client, profiles[0], toNumber, body);
+        await insertUnsubscribedDeliveryReport(client, first);
+
+        const second = await sendMessage(client, profiles[1], toNumber, body);
+        await insertUnsubscribedDeliveryReport(client, second);
+
+        const third = await sendMessage(client, profiles[1], toNumber, body);
+        await insertUnsubscribedDeliveryReport(client, third);
+
+        let fourth, errorMessage;
+
+        try {
+          fourth = await sendMessage(client, profiles[3], toNumber, body);
+        } catch (ex) {
+          errorMessage = ex.message;
+        }
+
+        return { messageId: fourth, errorMessage };
+      }
+    );
+
+    expect(errorMessage).toBeUndefined();
     expect(messageId).not.toBeUndefined();
   });
 });
