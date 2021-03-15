@@ -1,43 +1,33 @@
 # Assemble Backend Engineer Take Home Assignment
 
-Assemble is an browser based spreadsheet app built largely in `pl/pgsql` via triggers.
-The goal of this test is to introduce you to database oriented programming and guage
-your ability to solve a non-trivial but not too complex problem.
+Assemble is a browser-based spreadsheet app built largely in `pl/pgsql` via triggers. The goal of this test is to introduce you to database-oriented programming and gauge your ability to solve a non-trivial but not too complex problem.
 
 ## How to take this test
 
-For this test, our goal is to give you time to think through a problem similar to
-the ones you'll encounter at Rewired and understand how you think through it and
-see the solutions you come to.
+For this test, our goal is to give you time to think through a problem similar to the ones you'll encounter at Rewired and understand how you think through it and see how you come to solutions.
 
-Down below, there is an introduction to the task and additional questions to think through.
-Of course the ideal submission would include passing tests and good answers to all 
-questions, but a submission that lays out your goals, thoughtfully answers the questions
-and contains no code can be better than one that just makes the tests pass.
+Down below, there is an introduction to the task and additional questions to think through. Of course, the ideal submission would include passing tests and good answers to all questions, but a submission that lays out your goals, thoughtfully answers the questions and contains no code can be better than one that just makes the tests pass.
 
-To get started, read the rest of the README, get your dev environment setup, and get going!
+To get started, read the rest of the README, get your dev environment set up, and get going!
 
-To submit, create a branch called `first-last` and commit your changes there. Next, push
-your branch to a repo on your personal GitHub, make sure `ben-pr-p` and `bchrobot` have 
-access, and send an email to hiring@politicsrewired.com letting us know you've finished.
-In that email, also include any additional thoughts related to the questions.
+To submit, create a branch called `first-last` and commit your changes there. Next, push your branch to a repo on your personal GitHub, make sure `ben-pr-p` and `bchrobot` have access, and send an email to [hiring@politicsrewired.com](mailto:hiring@politicsrewired.com) letting us know you've finished. In that email, also include any additional thoughts related to the questions.
 
 ## Getting Started
 
-1. Get PostgreSQL up and running. You can see instructions
+1. Get PostgreSQL up and running. You can see instructions 
    [here (for Mac OS)](https://postgresapp.com/) or 
    [here (for Windows)](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads).
-   If it's taking more than a few minutes, send an email to ben@politicsrewired.com and 
-   I'll set up a small remote database for you. In order to run the 
-   migrations and tests, you'll need Postgresql running locally on 5432. If you'd like to use 
-   a remote Postgres or local postgres running on a different port, just 
-   set `export DATABASE_URL=<your database url>`.
+   If it's taking more than a few minutes, send an email to
+   [ben@politicsrewired.com](mailto:ben@politicsrewired.com) and we'll set up a 
+   small remote database for you. In order to run the migrations and tests, 
+   you'll need Postgresql running locally on 5432. If you'd like to use a 
+   remote Postgres or local postgres running on a different port, just 
+   set `export DATABASE_URL=<your database url>`. 
 
-2. Install NodeJS and [Yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable).
+2. Install NodeJS and [Yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable). 
    This take home has been tested with Node v12 and v14.
 
-2. Create the database to run the tests.
-   For me, the easiest way to do this is to pop into `psql`:
+3. Create the database to run the tests. You may find it easiest to pop into `psql`:
 
 ```
 MacBook-Pro-5:assemble-backend-engineer-take-home benpacker$ psql
@@ -69,7 +59,7 @@ to run the tests.
 
 This repo contains a simple reproduction of one component of a messaging application. In this application,
 (not included here), sending messages is accomplished by inserting into the `outbound_messages` table, which then,
-via triggers, queue the sending of the message (not included here).
+via triggers, queue the sending of the message (also not included here).
 
 Each user of the application has an entry in the `profiles` table.
 
@@ -89,7 +79,7 @@ unsubscribed from 3 distinct profiles.
 
 ### Goal
 
-To get started, take a look at the tests in `__tests__/assignment.spec.ts`. 
+To get started, take a look at the tests in `__tests__/assignment.spec.ts`.
 If you run `yarn test`, you can tell that one test is failing. Your goal is to make all tests pass!
 
 To do this, you should not _need_ to modify any code in `assignment.spec.ts` or write any Javascript - we'd like you to find a
