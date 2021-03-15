@@ -1,4 +1,4 @@
-# Assemble Backend Engineer Take Home Assignment
+# Assemble Take Home Assignment
 
 Assemble is a browser-based spreadsheet app built largely in `pl/pgsql` via triggers. The goal of this test is to introduce you to database-oriented programming and gauge your ability to solve a non-trivial but not too complex problem.
 
