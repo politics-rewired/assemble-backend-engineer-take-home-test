@@ -6,6 +6,9 @@ Assemble is a browser-based spreadsheet app built largely in `pl/pgsql` via trig
 
 For this test, our goal is to give you time to think through a problem similar to the ones you'll encounter at Rewired and understand how you think through it and see how you come to solutions.
 
+Please don't spend more than 3-5 hours on it! If you don't have 3-5 hours to devote to it,
+just let us know and we can come up with something else.
+
 Down below, there is an introduction to the task and additional questions to think through. Of course, the ideal submission would include passing tests and good answers to all questions, but a submission that lays out your goals, thoughtfully answers the questions and contains no code can be better than one that just makes the tests pass.
 
 To get started, read the rest of the README, get your dev environment set up, and get going!
