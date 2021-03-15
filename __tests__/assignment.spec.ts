@@ -1,6 +1,5 @@
 import { withPgMiddlewares, autoRollbackMiddleware } from "./helpers";
 import { Pool, PoolClient } from "pg";
-import { reset } from "../src/migrate";
 import faker from "faker";
 
 type PoolOrPoolClient = Pool | PoolClient;
@@ -81,13 +80,12 @@ const insertUnsubscribedDeliveryReport = async (
   );
 };
 
-const pool = new Pool({});
+const pool = new Pool({
+  connectionString:
+    process.env.DATABASE_URL || "postgres://localhost:5432/rewired_test",
+});
 
 describe("triple opt out", () => {
-  beforeAll(async () => {
-    await reset();
-  });
-
   test("should successfully send a first message", async () => {
     const messageId = await withPgMiddlewares(
       pool,

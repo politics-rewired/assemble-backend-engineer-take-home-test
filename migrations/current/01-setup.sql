@@ -1,3 +1,6 @@
+drop schema public cascade;
+create schema public;
+
 create extension if not exists "uuid-ossp";
 
 create table profiles (
