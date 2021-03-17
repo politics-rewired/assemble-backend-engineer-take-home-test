@@ -15,19 +15,37 @@ To get started, read the rest of the README, get your dev environment set up, an
 
 To submit, create a branch called `first-last` and commit your changes there. Next, push your branch to a repo on your personal GitHub, make sure `ben-pr-p` and `bchrobot` have access, and send an email to [hiring@politicsrewired.com](mailto:hiring@politicsrewired.com) letting us know you've finished. In that email, also include any additional thoughts related to the questions.
 
-## Getting Started
+## Getting Started via GitPod
 
-1. Get PostgreSQL up and running. You can see instructions 
-   [here (for Mac OS)](https://postgresapp.com/) or 
+This repo is configured to work with [Gitpod](https://gitpod.io/), and so if you'd rather skip
+any local installation that may be required, you can:
+
+1. Clone this and push its code to one you create, privately, on your own github.
+
+2. Then, take the current URL and add 'https://gitpod.io/#' to the beginning of the URL, so
+   it would look something like: http://gitpod.io/#https://github.com/politics-rewired/assemble-take-home-test.
+
+GitPod will ask you to sign in and then present you with a ready to go development
+environment with PostgreSQL, Node, and all dependencies installed.
+
+You'll also be logged into git locally already, and can create your branch to submit
+and push your solution from there.
+
+If you run into issues with this setup, please let us know at hiring@politicsrewired.com!
+
+## Getting Started Locally
+
+1. Get PostgreSQL up and running. You can see instructions
+   [here (for Mac OS)](https://postgresapp.com/) or
    [here (for Windows)](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads).
    If it's taking more than a few minutes, send an email to
-   [ben@politicsrewired.com](mailto:ben@politicsrewired.com) and we'll set up a 
-   small remote database for you. In order to run the migrations and tests, 
-   you'll need Postgresql running locally on 5432. If you'd like to use a 
-   remote Postgres or local postgres running on a different port, just 
-   set `export DATABASE_URL=<your database url>`. 
+   [ben@politicsrewired.com](mailto:ben@politicsrewired.com) and we'll set up a
+   small remote database for you. In order to run the migrations and tests,
+   you'll need Postgresql running locally on 5432. If you'd like to use a
+   remote Postgres or local postgres running on a different port, just
+   set `export DATABASE_URL=<your database url>`.
 
-2. Install NodeJS and [Yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable). 
+2. Install NodeJS and [Yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable).
    This take home has been tested with Node v12 and v14.
 
 3. Create the database to run the tests. You may find it easiest to pop into `psql`:
@@ -51,9 +69,11 @@ And each time you change the file `sql/current/02-prevent-sends-to-triple-unsubs
 your changes will be reflected in the database and errors displayed in your terminal.
 
 Then, you can run:
+
 ```
 yarn test
 ```
+
 to run the tests.
 
 ## The Test
@@ -71,11 +91,11 @@ an event - in this case, the event is either `'delivered'` or `'failed'`, and if
 an associated error code, here simplified to either `30007` (flagged as spam) or `21610`
 (failed to send because the contact was opted out).
 
-This `21610` error is the one we're focusing on here. It occurs when a message is 
+This `21610` error is the one we're focusing on here. It occurs when a message is
 sent from a specific profile to a phone number that has already opted out from messages
 from that specific profile.
 
-Twilio has asked us kindly not to send messages to contacts who have unsubscribed 
+Twilio has asked us kindly not to send messages to contacts who have unsubscribed
 from 3 separate users of ours, and so we need to start keeping track of that, and throw
 an error when someone attempts to send a message to a phone number that has already
 unsubscribed from 3 distinct profiles.
@@ -103,6 +123,7 @@ For a quick introduction to why you'd want to do this, check out [this talk](htt
 
 Optimal solutions may use PostgreSQL features that aren't in other traditional RDBMS.
 The following links may be useful:
+
 - [CREATE TRIGGER](https://www.postgresql.org/docs/13/sql-createtrigger.html)
 - [CREATE FUNCTION](https://www.postgresql.org/docs/13/sql-createfunction.html)
 - [Array type](https://www.postgresql.org/docs/13/arrays.html)
@@ -121,4 +142,3 @@ The following links may be useful:
    tells you that even though the magic number is 3 distinct unsubscribes now, it may
    change in the future to 2, 4, 5, etc. Does this change how you approach your solution
    at all?
-
