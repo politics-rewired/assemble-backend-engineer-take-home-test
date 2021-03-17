@@ -1,0 +1,17 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - init: yarn install && createdb rewired_test && psql -c 'create user postgres with superuser'
+    before: export DATABASE_URL=postgres://gitpod@localhost:5432/rewired_test &&
+            export ROOT_DATABASE_URL=postgres://postgres@localhost:5432/rewired_test &&
+            export SHADOW_DATABASE_URL=postgres://gitpod@localhost:5432/rewired_test_shadow
+    command: yarn migrate watch
+    name: 'Migration Errors Here'
+  - before: export DATABASE_URL=postgres://gitpod@localhost:5432/rewired_test &&
+            export ROOT_DATABASE_URL=postgres://postgres@localhost:5432/rewired_test &&
+            export SHADOW_DATABASE_URL=postgres://gitpod@localhost:5432/rewired_test_shadow
+    command: echo 'Run `yarn test` to run the tests!'
+    name: 'Run Tests'
+    openMode: split-right
+
