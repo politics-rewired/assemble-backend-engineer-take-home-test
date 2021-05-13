@@ -102,17 +102,17 @@ unsubscribed from 3 distinct profiles.
 
 ### Goal
 
-To get started, take a look at the tests in `__tests__/assignment.spec.ts`.
+To get started, take a look at the tests in `__tests__/triple-unsubscribe.spec.ts`.
 If you run `yarn test`, you can tell that one test is failing. Your goal is to make all tests pass!
 
-To do this, you should not _need_ to modify any code in `assignment.spec.ts` or write any Javascript - we'd like you to find a
+To do this, you should not _need_ to modify any code in `triple-unsubscribe.spec.ts` or write any Javascript - we'd like you to find a
 solution that relies on the features provided by PostgreSQL itself.
 
 To verify that the test code is working properly, you can uncomment the provided test cheat in the second migration file.
 This cheat relies on a specific body being passed in and is not a proper, general, solution, but it is provided to test
 the test as well as provide an example for how to trigger the specific error that we're looking for.
 
-If you'd like to write any additional tests in `assignment.spec.ts` (or create another test file) to test
+If you'd like to write any additional tests in `triple-unsubscribe.spec.ts` (or create another test file) to test
 intermediate components of your solution, feel free to do so.
 
 ### Documentation
