@@ -16,7 +16,7 @@
    *
    * RECOMMENDATION: use `DATABASE_URL` envvar instead.
    */
-  "connectionString": "postgres://gitpod@localhost:5432/rewired_test",
+  "connectionString": "postgres://postgres@localhost:5432/rewired_test",
 
   /*
    * shadowConnectionString: like connectionString, but this is used for the
@@ -33,7 +33,7 @@
    *
    * RECOMMENDATION: use `ROOT_DATABASE_URL` envvar instead.
    */
-  // "rootConnectionString": "postgres://postgres:adminpassword@host:5432/postgres",
+  "rootConnectionString": "postgres://postgres@localhost:5432/postgres",
 
   /*
    * pgSettings: key-value settings to be automatically loaded into PostgreSQL

@@ -10,7 +10,7 @@ import {
 
 const pool = new Pool({
   connectionString:
-    process.env.DATABASE_URL || "postgres://gitpod@localhost:5432/rewired_test",
+    process.env.DATABASE_URL || "postgres://postgres@localhost:5432/rewired_test",
 });
 
 describe("triple opt out", () => {
